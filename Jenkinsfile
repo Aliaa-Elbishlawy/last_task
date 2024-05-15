@@ -1,10 +1,9 @@
 pipeline {
     agent any
-        stage('Execute Script') {
+    stages {
+        stage('Execute Bash Script') {
             steps {
-                sh 'chmod +x CloudTask.sh'
-                sh './CloudTask.sh'
+                sh './execute_ls_command.sh'
             }
         }
     }
-}
