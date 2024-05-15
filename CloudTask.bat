@@ -1,3 +1,4 @@
 @ECHO OFF
-ls
+echo Hello, world!
+dir
 PAUSE
