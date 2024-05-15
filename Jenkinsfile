@@ -1,9 +1,18 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Execute Bash Script') {
+        stage('Checkout') {
             steps {
-                sh './execute_ls_command.sh'
+                git branch: 'main', url: 'https://github.com/Aliaa-Elbishlawy/last_task.git'
+            }
+        }
+        stage('Execute Script') {
+            steps {
+                // Ensure the script is executable and run it
+                sh 'chmod +x CloudTask.sh'
+                sh './CloudTask.sh'
             }
         }
     }
+}
