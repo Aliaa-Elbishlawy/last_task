@@ -4,10 +4,16 @@ pipeline {
     stages {
         stage('Checkout Main Repo') {
             steps {
-                git branch: 'main', url: 'url: 'https://github.com/Aliaa-Elbishlawy/Parking-System.git'
+                git branch: 'main', url: 'https://github.com/Aliaa-Elbishlawy/last_task.git', credentialsId: 'main-repo-credentials'
             }
         }
-    
+        stage('Checkout Another Repo') {
+            steps {
+                dir('another-repo') {
+                    git branch: 'main', url: 'https://github.com/another-user/another-repo.git', credentialsId: 'another-repo-credentials'
+                }
+            }
+        }
         stage('Execute Script from Another Repo') {
             steps {
                 dir('another-repo') {
