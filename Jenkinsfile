@@ -22,8 +22,8 @@ pipeline {
         stage('Execute Script in Another Repo') {
             steps {
                 // Ensure the script is executable and run it in the second repository
-                sh 'chmod +x CloudTask.sh'
-                sh './CloudTask.sh'
+                sh 'chmod +x another_repo.sh'
+                sh './another_repo.sh'
             }
         }
     }
