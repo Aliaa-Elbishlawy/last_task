@@ -1,17 +1,25 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Checkout') {
+        stage('Checkout Main Repo') {
             steps {
                 git branch: 'main', url: 'https://github.com/Aliaa-Elbishlawy/last_task.git'
             }
         }
-        stage('Execute Script') {
+        stage('Checkout Another Repo') {
             steps {
-                // Ensure the script is executable and run it
-                sh 'chmod +x CloudTask.sh'
-                sh './CloudTask.sh'
+                dir('another-repo') {
+                    git branch: 'main', url: 'https://github.com/Aliaa-Elbishlawy/Parking-System.git'
+                }
+            }
+        }
+        stage('Execute Script from Another Repo') {
+            steps {
+                dir('another-repo') {
+                    sh 'chmod +x CloudTask.sh'
+                    sh './CloudTask.sh'
+                }
             }
         }
     }
