@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Another Repo') {
             steps {
                 dir('another-repo') {
-                    git branch: 'main', url: 'https://github.com/another-user/another-repo.git', credentialsId: 'another-repo-credentials'
+                    git branch: 'main', url: 'https://github.com/Aliaa-Elbishlawy/Parking-System.git', credentialsId: 'another-repo-credentials'
                 }
             }
         }
